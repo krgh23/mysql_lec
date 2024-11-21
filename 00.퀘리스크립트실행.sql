@@ -1,6 +1,6 @@
 -- single line comment
 /*
-	multi line comment
+    multi line comment
 */
 
 -- 작성된 쿼리문 실행하는 방법
