@@ -1,7 +1,7 @@
 USE testdb;
 
-DROP TABLE IF EXISTS customer_tbl CASCADE;
-DROP TABLE IF EXISTS bank_tbl CASCADE;
+DROP TABLE IF EXISTS customer_tbl;
+DROP TABLE IF EXISTS bank_tbl;
 
 CREATE TABLE IF NOT EXISTS bank_tbl
 (

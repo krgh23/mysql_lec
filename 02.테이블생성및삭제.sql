@@ -7,14 +7,14 @@ USE testdb;
 */
 -- 테이블 삭제하기 (있으면 삭제한다)
 -- tbl_product을 먼저 지우면 tbl_order의 FK의 무결점 위배
--- CASCADE = 참조중인 테이블이 존제하면 함께 삭제하는 CASCADE 옵션
-DROP TABLE IF EXISTS tbl_order CASCADE;
-DROP TABLE IF EXISTS tbl_product CASCADE;
+-- CASCADE = 참조중인 테이블이 존제하면 함께 삭제하는 CASCADE 옵션 // MySQL에서는 작동안함!
+DROP TABLE IF EXISTS tbl_order;
+DROP TABLE IF EXISTS tbl_product;
 
 -- 테이블 만들기 (IF NOT EXISTS = 없으면 만든다.)
 CREATE TABLE IF NOT EXISTS tbl_product
 (
-    -- NOT NULL = pk(기본키) id에는 null값이 있을수 없다, 
+    -- NOT NULL = pk(기본키) id에는 null값이 있을수 없다, 안적어도 PK는 기본으로 NOT NULL, UNIQUE 값을 갖음 정의서에 있으면 기제 하지만 NOT NULL, UNIQUE를 둘다 적는것은 오류가 날수있음 비추
     -- AUTO_INCREMENT = 자동으로 1부터 숫자가 올라간다
     -- PRIMARY KEY = 기본키 설정
     -- COMMENT = 커멘트
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS tbl_product
     -- VARCHAR(20) = 최대 길이 20자
     -- NULL = NULL을 적어주거나 아에 안적어주면 NULL이 하다.
     prod_name VARCHAR(20) NULL COMMENT '제품이름',
-    -- INT(5) = 29,999원까지 설정가능 일부러 제한을 두어 데이터확보
+    -- INT(5) = 99,999원까지 설정가능 일부러 제한을 두어 데이터확보
     price INT(5) COMMENT '제품가격',
     -- SMALLINT = 2바이트
     -- DEFAULT 0 = 아무값도 없으면 "0"이 들어간다(기본값)
