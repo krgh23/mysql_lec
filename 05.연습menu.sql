@@ -84,12 +84,5 @@ INSERT INTO tbl_menu VALUES (NULL, '크림버섯파스타', 10000, 'T', 10);
 INSERT INTO tbl_menu VALUES (NULL, '토마토소고기파스타', 20000, 'T', 9);
 
 COMMIT;
---     menu_code        INT NOT NULL AUTO_INCREMENT COMMENT '메뉴코드',tbl_department
---     menu_name        VARCHAR(30) COMMENT '메뉴명',
---     menu_price       INT COMMENT '메뉴가격',
---     orderable_status CHAR(1) COMMENT '주문가능상태',
---     category_code    INT COMMENT '카테고리코드',tbl_menu
---     CONSTRAINT pk_menu PRIMARY KEY(menu_code),
---     CONSTRAINT fk_department_menu FOREIGN KEY(category_code) REFERENCES tbl_department(category_code)
--- ) ENGINE=InnoDB COMMENT '메뉴';
+
 
