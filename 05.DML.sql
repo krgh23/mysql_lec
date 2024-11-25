@@ -14,9 +14,9 @@ INSERT INTO tbl_department(dept_name, location) VALUES ('기획부', '서울');
     
 -- tbl_employee 의 첫 번째 칼럼 emp_id 에는 NULL 값을 전달해서 emp_id 칼럼의 AUTO_INCREMENT 동작을 보장한다. // 실행하면 '가'저장됨
 INSERT INTO tbl_employee VALUES (NULL, 1, '구창민', '과장', 'M', '95-05-01', 5000000);
-INSERT INTO tbl_employee VALUES (NULL, 2, '김민서', '사원', 'M', '17-09-01', 2500000);
-INSERT INTO tbl_employee VALUES (NULL, 3, '이은영', '부장', 'F', '90-09-01', 5500000);
-INSERT INTO tbl_employee VALUES (NULL, 4, '한성일', '과장', 'M', '93-04-01', 5000000);
+INSERT INTO tbl_employee VALUES (NULL, 1, '김민서', '사원', 'M', '17-09-01', 2500000);
+INSERT INTO tbl_employee VALUES (NULL, 2, '이은영', '부장', 'F', '90-09-01', 5500000);
+INSERT INTO tbl_employee VALUES (NULL, 2, '한성일', '과장', 'M', '93-04-01', 5000000);
 
 -- 영구적으로 저장 (Transaction(트랜잭션) - PDF06)
 -- ACID = 원자성(Atomicity), 일관성(Consistency), 격리성(Isolation), 지속성(Durability)
