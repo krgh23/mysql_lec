@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS tbl_order_menu;
 DROP TABLE IF EXISTS tbl_menu;
 DROP TABLE IF EXISTS tbl_order;
 DROP TABLE IF EXISTS tbl_payment;
-DROP TABLE IF EXISTS tbl_department;
+DROP TABLE IF EXISTS tbl_category;
 
 
 
