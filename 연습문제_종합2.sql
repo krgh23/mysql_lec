@@ -78,6 +78,7 @@ COMMIT;
 
 
 
+
 /****************************** 문 제 ****************************************/
 
 -- 1. 연락처1이 없는 사용자의 사용자번호, 아이디, 연락처1, 연락처2를 조회하시오.
@@ -208,6 +209,10 @@ SELECT user_id AS 아이디, COUNT(*) AS 구매횟수
 -- PSH     박수홍  3
 -- SDY     신동엽  0
 -- YJS     유재석  0
+SELECT user_id AS 아이디, user_name AS 고객명, COUNT(b.user_no) AS 구매횟수
+  FROM tbl_user u LEFT JOIN tbl_buy b on u.user_no = b.user_no
+ GROUP BY user_id, user_name
+ ORDER BY user_id;
 
 
 
@@ -222,6 +227,10 @@ SELECT user_id AS 아이디, COUNT(*) AS 구매횟수
 -- 벨트    0개
 
 
+SELECT prod_name AS 상품명, concat(COUNT(buy_no), '개') AS 판매횟수
+  FROM tbl_product p LEFT JOIN tbl_buy b ON p.prod_code = b.prod_code
+ GROUP BY p.prod_name;
+
 
 -- 12. 카테고리가 '전자'인 상품을 구매한 고객의 구매내역을 조회하시오.
 -- 고객명  상품명  구매액
@@ -230,7 +239,11 @@ SELECT user_id AS 아이디, COUNT(*) AS 구매횟수
 -- 박수홍  모니터  1000
 -- 박수홍  메모리  800
 
-
+SELECT user_name AS 고객명, prod_name AS 상품명, prod_price AS 구매액
+  FROM tbl_user u
+  LEFT JOIN tbl_buy b ON u.user_no = b.user_no
+  LEFT JOIN tbl_product p ON b.prod_code = p.prod_code
+ WHERE prod_category = '전자';
 
 -- 13. 상품을 구매한 이력이 있는 고객의 아이디, 고객명, 구매횟수, 총구매액을 조회하시오.
 -- 아이디  고객명  구매횟수  총구매액
@@ -240,13 +253,24 @@ SELECT user_id AS 아이디, COUNT(*) AS 구매횟수
 -- KJD     김제동  1         75
 -- LHJ     이휘재  2         80
 
-
+SELECT user_id AS 아이디
+     , user_name AS 고객명
+     , COUNT(buy_no) AS 구매횟수
+     , SUM(P.prod_price * B.buy_amount) AS 총구매액
+  FROM tbl_user U 
+ INNER JOIN tbl_buy B ON U.user_no = B.user_no
+ INNER JOIN tbl_product P ON P.prod_code = B.prod_code
+ GROUP BY user_id;
 
 -- 14. 구매횟수가 2회 이상인 고객명과 구매횟수를 조회하시오.
 -- 고객명  구매횟수
 -- 강호동  3
 -- 이휘재  2
 -- 박수홍  3
+SELECT user_name, COUNT(buy_no) AS 구매횟수
+  FROM tbl_user u INNER JOIN tbl_buy b on u.user_no = b.user_no
+ GROUP BY user_id
+HAVING COUNT(buy_no) >= 2;
 
 
 
